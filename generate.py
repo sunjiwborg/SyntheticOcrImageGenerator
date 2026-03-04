@@ -8,14 +8,13 @@ from tqdm import tqdm
 # --- CONFIGURATION ---
 INPUT_PARQUET = "bodo_text_data.parquet"
 OUTPUT_DIR = "bodo_ocr_dataset"
-FONTS_DIR = "fonts"             # Folder with your .ttf files
-TARGET_COUNT = 10000             # Total successful images wanted
-MAX_CHARS_PER_LINE = 45         # Standard line length for OCR
-TRAIN_SPLIT = 0.8               # 80% Train, 20% Val
+FONTS_DIR = "fonts"             
+TARGET_COUNT = 10000            
+MAX_CHARS_PER_LINE = 45         
+TRAIN_SPLIT = 0.8              
 
 # --- NOISE FUNCTIONS ---
 def add_salt_pepper(img_array, prob=0.015):
-    """Adds dust/specks to the image."""
     thres = 1 - prob
     for i in range(img_array.shape[0]):
         for j in range(img_array.shape[1]):
@@ -25,7 +24,6 @@ def add_salt_pepper(img_array, prob=0.015):
     return img_array
 
 def apply_stress(img):
-    """Applies random rotation, noise, and lighting jitter."""
     # 1. Grayscale conversion (TrOCR prefers RGB/L, but noise is easier in array)
     img_array = np.array(img.convert('L'))
     
@@ -37,7 +35,7 @@ def apply_stress(img):
     elif choice == 'blur':
         img = img.filter(ImageFilter.GaussianBlur(radius=random.uniform(0.3, 0.8)))
     elif choice == 'ink':
-        img = img.filter(ImageFilter.MinFilter(3)) # Makes text thicker
+        img = img.filter(ImageFilter.MinFilter(3)) 
 
     # 3. Random Rotation (-2.5 to 2.5 degrees)
     img = img.rotate(random.uniform(-2.0, 2.0), resample=Image.BICUBIC, expand=False, fillcolor="white")
