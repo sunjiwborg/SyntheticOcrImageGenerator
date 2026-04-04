@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+src/ocrgen/__init__.py
+src/ocrgen/bg_utils.py
+src/ocrgen/image_utils.py
+src/ocrgen/main.py
+src/ocrgen/text_utils.py
+src/ocrgen.egg-info/PKG-INFO
+src/ocrgen.egg-info/SOURCES.txt
+src/ocrgen.egg-info/dependency_links.txt
+src/ocrgen.egg-info/entry_points.txt
+src/ocrgen.egg-info/requires.txt
+src/ocrgen.egg-info/top_level.txt
