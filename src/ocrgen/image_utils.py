@@ -2,7 +2,6 @@ import random
 from PIL import Image, ImageFilter
 
 def apply_rotation_to_layer(text_layer, angle):
-    """Rotates the text layer (tilt) and expands the canvas to fit the slanted text."""
     return text_layer.rotate(angle, resample=Image.BICUBIC, expand=True)
 
 def apply_blur_to_final(image, args):
