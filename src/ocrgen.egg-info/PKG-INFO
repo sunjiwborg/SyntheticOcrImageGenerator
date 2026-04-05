@@ -1,8 +1,0 @@
-Metadata-Version: 2.4
-Name: ocrgen
-Version: 1.0.0
-Summary: Synthetic text image generator for OCR training
-Requires-Python: >=3.8
-Requires-Dist: Pillow>=10.0.0
-Requires-Dist: numpy>=1.20.0
-Requires-Dist: tqdm>=4.60.0
