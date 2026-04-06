@@ -30,7 +30,7 @@ def main():
     
     # Effects
     parser.add_argument("-t", type=float, help="Tilt/Rotation angle")
-    parser.add_argument("-rt", action="store_true", help="Random tilt (-10 to 10)")
+    parser.add_argument("-rt", action="store_true", help="Random tilt (-5 to 5)")
     parser.add_argument("-bl", type=float, help="Gaussian blur radius")
     parser.add_argument("-rbl", action="store_true", help="Random blur (0, 1, 2)")
     
