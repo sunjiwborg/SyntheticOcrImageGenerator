@@ -36,7 +36,7 @@ def main():
     
     # Font Source
     parser.add_argument("-font", help="Specific font path")
-    parser.add_argument("-font_dir", help="Folder for random font selection")
+    parser.add_argument("-fonts_dir", help="Folder for random font selection")
     
     args = parser.parse_args()
 
