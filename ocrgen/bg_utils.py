@@ -11,7 +11,7 @@ def generate_background(bg_type_arg, is_random, size, bg_dir, noise_level=15):
 
     if bg_type == '1': # Gaussian Noise
         # Create a white base array
-        array = np.full((size[1], size[0], 3), 255, dtype=np.uint8)
+        array = np.full((size[1], size[0], 3), 128, dtype=np.uint8)
         # Apply noise based on standard deviation (noise_level)
         noise = np.random.normal(0, noise_level, array.shape)
         noisy_array = np.clip(array + noise, 0, 255).astype(np.uint8)
