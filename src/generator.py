@@ -5,16 +5,16 @@ from tqdm import tqdm
 from PIL import Image, ImageDraw
 
 def generator(args):
-    # Call file reader 
+    # Read file 
     lines = reader(args.i)
-
+    print(lines)
     # Setup output
-    img_dir = os.path(args.o, "images")
+    img_dir = os.path.join(args.o, "images")
     os.makedirs(img_dir, exist_ok=True)
     label_path = os.path.join(args.o, "labels.tsv")
     with open(label_path, 'w', encoding='utf-8') as tsv:
-        for i in tqdm(range(len(lines)), desc="Generating Images", unit="img"):
-            text = random.sample(lines)
+        for i in tqdm(range(len(lines)), desc="Generating Images", ascii=True, unit="img"):
+            text = (lines[i])
             font = get_font(args)
 
             # Measure Text
@@ -29,12 +29,13 @@ def generator(args):
 
             # Canvas
             lw, lh = text_layer.size
-            canvas_size = (lw + 10, lh + 10)
+            canvas_size = (lw +(args.margin * 2), lh +(args.margin * 2))
             
             bg_img = Image.new('RGB', canvas_size, (225, 225, 225))
 
-            final_img = bg_img.paste(text_layer, (10, 10), text_layer)
+            bg_img.paste(text_layer, (args.margin, args.margin), text_layer)
 
+            final_img = bg_img
             # Save
             fname = f"sample_{i}.png"
             final_img.save(os.path.join(img_dir, fname))

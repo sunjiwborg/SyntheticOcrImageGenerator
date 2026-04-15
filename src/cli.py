@@ -9,6 +9,7 @@ def cli():
     parser.add_argument("-f", help="Path to fonts directory")
     parser.add_argument("-o", help="Path to generated images directory")
     parser.add_argument("-pt", type=int, nargs="+", default=16, help="Set font sizes")
+    parser.add_argument("-margin", type=int, default=10, help="Margin around text")
 
     args = parser.parse_args()
 

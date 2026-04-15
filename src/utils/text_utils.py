@@ -14,14 +14,14 @@ def reader(path):
 def get_font(args):
     # Determine font size
     font_size = random.choice(args.pt)
-    # Finding available fonts
-    font_files = glob.glob(os.path(args.f, "*.[to]tf"))
+    # Find available fonts
+    font_files = glob.glob(os.path.join(args.f, "*.[to]tf"))
 
     if font_files:
         font_path = random.choice(font_files)
     else:
         print("Couldn't find fonts")
-        exit
+        exit()
     
     try:
         # layout_engine=ImageFont.Layout.RAQM enables complex script support
